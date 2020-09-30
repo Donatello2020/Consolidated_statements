@@ -467,7 +467,7 @@ def fill_validation():
 
 def set_validation(range_1):
     range_1.api.Validation.Delete()
-    range_1.api.Validation.Add(3, 3, 3, '=.Validation!$A')
+    range_1.api.Validation.Add(3, 3, 1, '\'.Validation\'!$A$1:$A$220')
     return
 
 
