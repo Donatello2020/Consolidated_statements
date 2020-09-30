@@ -1,7 +1,5 @@
 # coding=utf-8
 import func as fc
-import xlwings as xw
-from win32com.client import Dispatch
 
 wb = fc.wblink()
 fc.new_sheet('preBS', '现金流量表')
@@ -9,7 +7,7 @@ fc.new_sheet('preIS', 'preBS')
 fc.new_sheet('preCF', 'preIS')
 fc.new_sheet('.Validation', 'preCF')
 fc.new_sheet('AJE', '.Validation')
-wb.sheets('.Validation').api.Visible = True
+wb.sheets('.Validation').api.Visible = False
 fc.new_sheet('TB', 'AJE')
 fc.new_sheet('BS', 'TB')
 fc.new_sheet('IS', 'BS')
@@ -29,11 +27,13 @@ fc.format_precf()
 
 # AJE
 fc.fill_validation()
+wb.sheets('AJE').clear()
 wb.sheets('AJE').range('A1').value = fc.fill_aje()
-wb.save()
-wb.close()
-xlApp = Dispatch('Excel.Application')
-xlApp.Quit()
+# wb.save()
+# wb.close()
+# xlApp = Dispatch('Excel.Application')
+# xlApp.Quit()
 wb = fc.wblink()
 # wb.sheets('AJE').range('C2:C500').api.Validation.Delete()
-fc.set_validation(wb.sheets('AJE').range('C2:C500'))
+# fc.set_validation(wb.sheets('AJE').range('C2:C500'))
+fc.format_aje()
