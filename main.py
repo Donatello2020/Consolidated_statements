@@ -1,5 +1,7 @@
 # coding=utf-8
 import func as fc
+import xlwings as xw
+from win32com.client import Dispatch
 
 wb = fc.wblink()
 fc.new_sheet('preBS', '现金流量表')
@@ -30,6 +32,8 @@ fc.fill_validation()
 wb.sheets('AJE').range('A1').value = fc.fill_aje()
 wb.save()
 wb.close()
+xlApp = Dispatch('Excel.Application')
+xlApp.Quit()
 wb = fc.wblink()
 # wb.sheets('AJE').range('C2:C500').api.Validation.Delete()
 fc.set_validation(wb.sheets('AJE').range('C2:C500'))
