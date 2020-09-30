@@ -470,7 +470,7 @@ def set_validation(range_1):
     range_1.api.Validation.Add(3, 3, 1, '=\'.Validation\'!$A$1:$A$220')
     return
 
-
+#
 def fill_aje():
     st = [['摘要', '借贷方向', '一级科目', '二级科目', '借方金额', '贷方金额', '备注']]
     return st
