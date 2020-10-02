@@ -370,7 +370,7 @@ def fill_precf():
                 _list[_i] = _value.replace('其它', '其他')
         st[_j] = _list
         _j = _j + 1
-    print(st)
+    # print(st)
     return st
 
 
@@ -473,8 +473,41 @@ def set_validation(range_1):
 
 #
 def fill_aje():
+    wb.sheets('AJE').clear()
     st = [['摘要', '借贷方向', '一级科目', '二级科目', '借方金额', '贷方金额', '备注']]
+    # 提示科目是否写对
+    for _row in range(500):
+        st.append(['', '', '', '', '', '', '=IF(OR(NOT(ISERROR(VLOOKUP(C' + str(_row + 2) \
+                   + ',\'.Validation\'!A:A,1,0))),C' + str(_row + 2) + '=""),"","没有找到该科目,请检查")'])
+    # 填写固定调整分录
+    if plookup('preBS', '应交税费', 4) < 0:
+        rplc_lst(st, 1, ['将应交税费负数调整到其他流动资产', '借', '其他流动资产', '', -plookup('preBS', '应交税费', 4), '', ''])
+        rplc_lst(st, 1, ['将应交税费负数调整到其他流动资产', '贷', '应交税费', '', '', -plookup('preBS', '应交税费', 4), ''])
+    print(st)
     return st
+
+
+def plookup(sheet_name, head, col_1, col_2=1):
+    lkupval = ''
+    _num_table = wb.sheets(sheet_name).range("A1:F80").value
+    for _lst in _num_table:
+        if _lst[col_1 - 1] == head:
+            lkupval = _lst[col_1 - 1 + col_2]
+            break
+        else:
+            lkupval = 0
+    return lkupval
+
+
+def rplc_lst(st, col, lst):
+    _i = 0
+    for _lst in st:
+        if _lst[col - 1] == '':
+            _i = _i + 1
+        if _i == 2:
+            st[st.index(_lst) - 1] = lst
+            break
+    return
 
 
 def format_aje():
