@@ -36,5 +36,8 @@ wb.sheets('AJE').range('A1').value = fc.fill_aje()
 # wb = fc.wblink()
 # wb.sheets('AJE').range('C2:C500').api.Validation.Delete()
 # fc.set_validation(wb.sheets('AJE').range('C2:C500'))
-
+# wb.sheets('AJE').range('A4').api.EntireRow.Delete()
 fc.format_aje()
+
+# TB
+wb.sheets('TB').range('A1').value = fc.fill_tb()

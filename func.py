@@ -505,7 +505,7 @@ def rplc_lst(st, col, lst):
         if _lst[col - 1] == '':
             _i = _i + 1
         if _i == 2:
-            st[st.index(_lst) - 1] = lst
+            st[st.index(_lst) - 1][:6] = lst[:6]
             break
     return
 
@@ -513,4 +513,12 @@ def rplc_lst(st, col, lst):
 def format_aje():
     wb.sheets('AJE').range('A1').api.ColumnWidth = 55
     wb.sheets('AJE').range('C1:G1').api.ColumnWidth = 20
+    wb.sheets('AJE').range('E:F').api.Style = "Comma"
     return
+
+
+# ----------------------------AJE Over-------------------------------------------
+# ----------------------------TB Start-------------------------------------------
+def fill_tb():
+    st = ['科目名称', '调整前', '借方调整数', '贷方调整数', '调整后']
+    return st
