@@ -520,5 +520,31 @@ def format_aje():
 # ----------------------------AJE Over-------------------------------------------
 # ----------------------------TB Start-------------------------------------------
 def fill_tb():
-    st = ['科目名称', '调整前', '借方调整数', '贷方调整数', '调整后']
+    st = [['科目名称', '调整前', '借方调整数', '贷方调整数', '调整后']]
+    for _lst in wb.sheets('preBS').range('A4:A52').value:
+        if _lst is not None:
+            # print(_lst)
+            st.append([_lst, '', '', '', ''])
+    # print(st)
+    for _lst in wb.sheets('preBS').range('D4:D52').value:
+        st.append([_lst, '', '', '', ''])
+    # print(st)
+    st.append(['', '', '', '', ''])
+    st.append(['利润表项目:', '', '', '', ''])
+    for _lst in wb.sheets('preIS').range('A5:A70').value:
+        st.append([_lst, '', '', '', ''])
+    st.append(['', '', '', '', ''])
+    st.append(['现流表项目:', '', '', '', ''])
+    for _lst in wb.sheets('preCF').range('A5:A60').value:
+        st.append([_lst, '', '', '', ''])
+
+    _i = 0
+    for _lst in st[1:]:
+        _i = _i + 1
+        st[st.index(_lst)][1] = '=IFERROR(IFERROR(IFERROR(VLOOKUP(A' + str(_i) + ',preBS!A:B,2,0),VLOOKUP(A' + str(
+            _i) + ',preBS!D:E,2,0)),VLOOKUP(A' + str(_i) + ',preIS!A:B,2,0)),VLOOKUP(A' + str(_i) + ',preCF!A:B,2,0)) '
+
+    for _lst in st:
+        if _lst[0] == '' or _lst[0][-1] == '：' or _lst[0][-1] == ':' or _lst[0][-1] == '计' or _lst[0][1] == '、':
+            st[st.index(_lst)][1] = ''
     return st
