@@ -538,13 +538,16 @@ def fill_tb():
     for _lst in wb.sheets('preCF').range('A5:A60').value:
         st.append([_lst, '', '', '', ''])
 
-    _i = 0
+    _i = 1
     for _lst in st[1:]:
         _i = _i + 1
         st[st.index(_lst)][1] = '=IFERROR(IFERROR(IFERROR(VLOOKUP(A' + str(_i) + ',preBS!A:B,2,0),VLOOKUP(A' + str(
             _i) + ',preBS!D:E,2,0)),VLOOKUP(A' + str(_i) + ',preIS!A:B,2,0)),VLOOKUP(A' + str(_i) + ',preCF!A:B,2,0)) '
+        st[st.index(_lst)][2] = '=IF(SUMIF(AJE!C:C,A' + str(_i) + ',AJE!E:E)=0,"",SUMIF(AJE!C:C,A' + str(_i) + ',AJE!E:E)) '
+        st[st.index(_lst)][3] = '=IF(SUMIF(AJE!C:C,A' + str(_i) + ',AJE!F:F)=0,"",SUMIF(AJE!C:C,A' + str(_i) + ',AJE!F:F)) '
+    #     区分借贷方向后编制公式
 
     for _lst in st:
-        if _lst[0] == '' or _lst[0][-1] == '：' or _lst[0][-1] == ':' or _lst[0][-1] == '计' or _lst[0][1] == '、':
+        if _lst[0] == '' or _lst[0][-1] == '：' or _lst[0][-1] == ':' or _lst[0][-1] == '计' or _lst[0][1] == '、' or _lst[0][-2] == '净额':
             st[st.index(_lst)][1] = ''
     return st
