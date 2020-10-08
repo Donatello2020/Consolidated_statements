@@ -308,11 +308,11 @@ def format_preis():
     wb.sheets('preIS').range('A65:C65').api.Font.Bold = True
     wb.sheets('preIS').range('A68:C68').api.Font.Bold = True
     for lst in range(63):
-        wb.sheets('preiS').range('a' + str(lst + 6)).api.IndentLevel = 1
+        wb.sheets('preIS').range('a' + str(lst + 6)).api.IndentLevel = 1
     for lst in [10, 36, 39, 41, 48, 65, 68, 42, 45, 50, 56]:
-        wb.sheets('preiS').range('a' + str(lst)).api.IndentLevel = 0
+        wb.sheets('preIS').range('a' + str(lst)).api.IndentLevel = 0
     for lst in [28, 29]:
-        wb.sheets('preiS').range('a' + str(lst)).api.IndentLevel = 2
+        wb.sheets('preIS').range('a' + str(lst)).api.IndentLevel = 2
     return
 
 
@@ -346,7 +346,7 @@ def fill_precf():
     match_3(st, '投资活动现金流出小计', '=sum(B39:B43)')
     match_3(st, '投资活动产生的现金流量净额', '=B38-B44')
     match_3(st, '筹资活动现金流入小计', '=sum(B47,B49:B50)')
-    match_3(st, '筹资活动现金流出小计', '=sum(B51:B54)')
+    match_3(st, '筹资活动现金流出小计', '=sum(B52:B54)')
     match_3(st, '筹资活动产生的现金流量净额', '=sum(B51-B55)')
     match_3(st, '五、现金及现金等价物净增加额', '=sum(B31,B45,B56,B57)')
     match_3(st, '六、期末现金及现金等价物余额', '=sum(B58,B59)')
@@ -357,7 +357,7 @@ def fill_precf():
     match_3(st, '投资活动现金流出小计', '=sum(C39:C43)', 0, 2)
     match_3(st, '投资活动产生的现金流量净额', '=C38-C44', 0, 2)
     match_3(st, '筹资活动现金流入小计', '=sum(C47,C49:C50)', 0, 2)
-    match_3(st, '筹资活动现金流出小计', '=sum(C51:C54)', 0, 2)
+    match_3(st, '筹资活动现金流出小计', '=sum(C52:C54)', 0, 2)
     match_3(st, '筹资活动产生的现金流量净额', '=sum(C51-C55)', 0, 2)
     match_3(st, '五、现金及现金等价物净增加额', '=sum(C31,C45,C56,C57)', 0, 2)
     match_3(st, '六、期末现金及现金等价物余额', '=sum(C58,C59)', 0, 2)
@@ -408,60 +408,60 @@ def fill_validation():
     wb.sheets('.Validation').range('A1').clear()
     wb.sheets('.Validation').range('A1').value = ['资产:'], ['流动资产：'], ['货币资金'], ['交易性金融资产'], ['衍生金融资产'], ['应收票据'], [
         '应收账款'], ['应收款项融资'], ['预付款项'], ['其他应收款'], ['其中：应收利息'], ['应收股利'], ['存货'], ['合同资产'], ['划分为持有待售的资产'], [
-        '一年内到期的非流动资产'], ['其他流动资产'], ['流动资产合计'], ['非流动资产：'], ['发放贷款和垫款'], [
-        '债权投资'], ['其他债权投资'], ['长期应收款'], ['长期股权投资'], ['其他权益工具投资'], [
-        '其他非流动金融资产'], ['投资性房地产'], ['固定资产'], ['在建工程'], ['生产性生物资产'], [
-        '油气资产'], ['使用权资产'], ['无形资产'], ['开发支出'], ['商誉'], ['长期待摊费用'], [
-        '递延所得税资产'], ['其他非流动资产'], ['非流动资产合计'], ['资产总计'], ['负债和股东权益:'], [
-        '流动负债：'], ['短期借款'], ['交易性金融负债'], ['衍生金融负债'], ['应付票据'], ['应付账款'], [
-        '预收款项'], ['合同负债'], ['应付职工薪酬'], ['应交税费'], ['其他应付款'], ['其中：应付利息'], [
-        '应付股利'], ['划分为持有待售的负债'], ['一年内到期的非流动负债'], ['其他流动负债'], ['流动负债合计'], [
-        '非流动负债：'], ['保险合同准备金'], ['长期借款'], ['应付债券'], ['其中：优先股(负债)'], [
-        '永续债(负债)'], ['租赁负债'], ['长期应付款'], ['长期应付职工薪酬'], ['预计负债'], [
-        '递延收益'], ['递延所得税负债'], ['其他非流动负债'], ['非流动负债合计'], ['负债合计'], [
-        '所有者权益：'], ['实收资本(股本)'], ['其他权益工具'], ['其中：优先股(权益)'], ['永续债(权益)'], [
-        '资本公积'], ['减：库存股'], ['其他综合收益'], ['专项储备'], ['盈余公积'], ['一般风险准备'], [
-        '未分配利润'], ['归属于母公司所有者权益合计'], ['少数股东权益'], ['股东权益合计'], [
-        '负债和股东权益总计'], ['一、营业总收入'], ['其中：营业收入'], ['利息收入_'], ['已赚保费'], [
-        '手续费及佣金收入'], ['二、营业总成本'], ['其中：营业成本'], ['利息支出'], ['手续费及佣金支出'], [
-        '退保金'], ['赔付支出净额'], ['提取保险责任准备金净额'], ['保单红利支出'], ['分保费用'], [
-        '税金及附加'], ['销售费用'], ['管理费用'], ['研发费用'], ['财务费用'], ['其中：利息费用'], [
-        '利息收入'], ['加：其他收益'], ['投资收益（损失以“－”号填列）'], ['其中：对联营企业和合营企业的投资收益'], [
-        '以摊余成本计量的金融资产终止确认收益'], ['汇兑收益（损失以“-”号填列）'], [
-        '净敞口套期收益（损失以“－”号填列）'], ['公允价值变动收益（损失以“－”号填列）'], [
-        '信用减值损失（损失以“-”号填列）'], ['资产减值损失（损失以“-”号填列）'], [
-        '资产处置收益（损失以“-”号填列）'], ['三、营业利润（亏损以“－”号填列）'], ['加：营业外收入'], [
-        '减：营业外支出'], ['四、利润总额（亏损总额以“－”号填列）'], ['减：所得税费用'], [
-        '五、净利润（净亏损以“－”号填列）'], ['（一）按经营持续性分类'], ['1.持续经营净利润（净亏损以“－”号填列）'], [
-        '2.终止经营净利润（净亏损以“－”号填列）'], ['（二）按所有权归属分类'], ['1.归属于母公司所有者的净利润'], [
-        '2.少数股东损益'], ['六、其他综合收益的税后净额'], ['归属母公司所有者的其他综合收益的税后净额'], [
-        '（一）不能重分类进损益的其他综合收益'], ['1.重新计量设定受益计划变动额'], [
-        '2.权益法下不能转损益的其他综合收益'], ['3.其他权益工具投资公允价值变动'], [
-        '4.企业自身信用风险公允价值变动'], ['5.其他'], ['（二）将重分类进损益的其他综合收益'], [
-        '1.权益法下可转损益的其他综合收益'], ['2.其他债权投资公允价值变动'], [
-        '3.金融资产重分类计入其他综合收益的金额'], ['4.其他债权投资信用减值准备'], ['5.现金流量套期储备'], [
-        '6.外币财务报表折算差额'], ['7.其他'], ['归属于少数股东的其他综合收益的税后净额'], ['七、综合收益总额'], [
-        '归属于母公司所有者的综合收益总额'], ['归属于少数股东的综合收益总额'], ['八、每股收益：'], [
-        '（一）基本每股收益'], ['（二）稀释每股收益'], ['一、经营活动产生的现金流量：'], [
-        '销售商品、提供劳务收到的现金'], ['客户存款和同业存放款项净增加额'], ['向中央银行借款净增加额'], [
-        '向其他金融机构拆入资金净增加额'], ['收到原保险合同保费取得的现金'], ['收到再保业务现金净额'], [
-        '保户储金及投资款净增加额'], ['收取利息、手续费及佣金的现金'], ['拆入资金净增加额'], [
-        '回购业务资金净增加额'], ['代理买卖证券收到的现金净额'], ['收到的税费返还'], [
-        '收到其他与经营活动有关的现金'], ['经营活动现金流入小计'], ['购买商品、接受劳务支付的现金'], [
-        '客户贷款及垫款净增加额'], ['存放中央银行和同业款项净增加额'], ['支付原保险合同赔付款项的现金'], [
-        '拆出资金净增加额'], ['支付利息、手续费及佣金的现金'], ['支付保单红利的现金'], [
-        '支付给职工以及为职工支付的现金'], ['支付的各项税费'], ['支付其他与经营活动有关的现金'], [
-        '经营活动现金流出小计'], ['经营活动产生的现金流量净额'], ['二、投资活动产生的现金流量：'], [
-        '收回投资收到的现金'], ['取得投资收益收到的现金'], ['处置固定资产、无形资产和其他长期资产收回的现金净额'], [
-        '处置子公司及其他营业单位收到的现金净额'], ['收到其他与投资活动有关的现金'], ['投资活动现金流入小计'], [
-        '购建固定资产、无形资产和其他长期资产支付的现金'], ['投资支付的现金'], ['质押贷款净增加额'], [
-        '取得子公司及其他营业单位支付的现金净额'], ['支付其他与投资活动有关的现金'], ['投资活动现金流出小计'], [
-        '投资活动产生的现金流量净额'], ['三、筹资活动产生的现金流量：'], ['吸收投资收到的现金'], [
-        '其中：子公司吸收少数股东投资收到的现金'], ['取得借款收到的现金'], ['收到其他与筹资活动有关的现金'], [
-        '筹资活动现金流入小计'], ['偿还债务支付的现金'], ['分配股利、利润或偿付利息支付的现金'], [
-        '支付其他与筹资活动有关的现金'], ['筹资活动现金流出小计'], ['筹资活动产生的现金流量净额'], [
-        '四、汇率变动对现金及现金等价物的影响'], ['五、现金及现金等价物净增加额'], ['加：期初现金及现金等价物余额'], [
-        '六、期末现金及现金等价物余额']
+                                                     '一年内到期的非流动资产'], ['其他流动资产'], ['流动资产合计'], ['非流动资产：'], ['发放贷款和垫款'], [
+                                                     '债权投资'], ['其他债权投资'], ['长期应收款'], ['长期股权投资'], ['其他权益工具投资'], [
+                                                     '其他非流动金融资产'], ['投资性房地产'], ['固定资产'], ['在建工程'], ['生产性生物资产'], [
+                                                     '油气资产'], ['使用权资产'], ['无形资产'], ['开发支出'], ['商誉'], ['长期待摊费用'], [
+                                                     '递延所得税资产'], ['其他非流动资产'], ['非流动资产合计'], ['资产总计'], ['负债和股东权益:'], [
+                                                     '流动负债：'], ['短期借款'], ['交易性金融负债'], ['衍生金融负债'], ['应付票据'], ['应付账款'], [
+                                                     '预收款项'], ['合同负债'], ['应付职工薪酬'], ['应交税费'], ['其他应付款'], ['其中：应付利息'], [
+                                                     '应付股利'], ['划分为持有待售的负债'], ['一年内到期的非流动负债'], ['其他流动负债'], ['流动负债合计'], [
+                                                     '非流动负债：'], ['保险合同准备金'], ['长期借款'], ['应付债券'], ['其中：优先股(负债)'], [
+                                                     '永续债(负债)'], ['租赁负债'], ['长期应付款'], ['长期应付职工薪酬'], ['预计负债'], [
+                                                     '递延收益'], ['递延所得税负债'], ['其他非流动负债'], ['非流动负债合计'], ['负债合计'], [
+                                                     '所有者权益：'], ['实收资本(股本)'], ['其他权益工具'], ['其中：优先股(权益)'], ['永续债(权益)'], [
+                                                     '资本公积'], ['减：库存股'], ['其他综合收益'], ['专项储备'], ['盈余公积'], ['一般风险准备'], [
+                                                     '未分配利润'], ['归属于母公司所有者权益合计'], ['少数股东权益'], ['股东权益合计'], [
+                                                     '负债和股东权益总计'], ['一、营业总收入'], ['其中：营业收入'], ['利息收入_'], ['已赚保费'], [
+                                                     '手续费及佣金收入'], ['二、营业总成本'], ['其中：营业成本'], ['利息支出'], ['手续费及佣金支出'], [
+                                                     '退保金'], ['赔付支出净额'], ['提取保险责任准备金净额'], ['保单红利支出'], ['分保费用'], [
+                                                     '税金及附加'], ['销售费用'], ['管理费用'], ['研发费用'], ['财务费用'], ['其中：利息费用'], [
+                                                     '利息收入'], ['加：其他收益'], ['投资收益（损失以“－”号填列）'], ['其中：对联营企业和合营企业的投资收益'], [
+                                                     '以摊余成本计量的金融资产终止确认收益'], ['汇兑收益（损失以“-”号填列）'], [
+                                                     '净敞口套期收益（损失以“－”号填列）'], ['公允价值变动收益（损失以“－”号填列）'], [
+                                                     '信用减值损失（损失以“-”号填列）'], ['资产减值损失（损失以“-”号填列）'], [
+                                                     '资产处置收益（损失以“-”号填列）'], ['三、营业利润（亏损以“－”号填列）'], ['加：营业外收入'], [
+                                                     '减：营业外支出'], ['四、利润总额（亏损总额以“－”号填列）'], ['减：所得税费用'], [
+                                                     '五、净利润（净亏损以“－”号填列）'], ['（一）按经营持续性分类'], ['1.持续经营净利润（净亏损以“－”号填列）'], [
+                                                     '2.终止经营净利润（净亏损以“－”号填列）'], ['（二）按所有权归属分类'], ['1.归属于母公司所有者的净利润'], [
+                                                     '2.少数股东损益'], ['六、其他综合收益的税后净额'], ['归属母公司所有者的其他综合收益的税后净额'], [
+                                                     '（一）不能重分类进损益的其他综合收益'], ['1.重新计量设定受益计划变动额'], [
+                                                     '2.权益法下不能转损益的其他综合收益'], ['3.其他权益工具投资公允价值变动'], [
+                                                     '4.企业自身信用风险公允价值变动'], ['5.其他'], ['（二）将重分类进损益的其他综合收益'], [
+                                                     '1.权益法下可转损益的其他综合收益'], ['2.其他债权投资公允价值变动'], [
+                                                     '3.金融资产重分类计入其他综合收益的金额'], ['4.其他债权投资信用减值准备'], ['5.现金流量套期储备'], [
+                                                     '6.外币财务报表折算差额'], ['7.其他'], ['归属于少数股东的其他综合收益的税后净额'], ['七、综合收益总额'], [
+                                                     '归属于母公司所有者的综合收益总额'], ['归属于少数股东的综合收益总额'], ['八、每股收益：'], [
+                                                     '（一）基本每股收益'], ['（二）稀释每股收益'], ['一、经营活动产生的现金流量：'], [
+                                                     '销售商品、提供劳务收到的现金'], ['客户存款和同业存放款项净增加额'], ['向中央银行借款净增加额'], [
+                                                     '向其他金融机构拆入资金净增加额'], ['收到原保险合同保费取得的现金'], ['收到再保业务现金净额'], [
+                                                     '保户储金及投资款净增加额'], ['收取利息、手续费及佣金的现金'], ['拆入资金净增加额'], [
+                                                     '回购业务资金净增加额'], ['代理买卖证券收到的现金净额'], ['收到的税费返还'], [
+                                                     '收到其他与经营活动有关的现金'], ['经营活动现金流入小计'], ['购买商品、接受劳务支付的现金'], [
+                                                     '客户贷款及垫款净增加额'], ['存放中央银行和同业款项净增加额'], ['支付原保险合同赔付款项的现金'], [
+                                                     '拆出资金净增加额'], ['支付利息、手续费及佣金的现金'], ['支付保单红利的现金'], [
+                                                     '支付给职工以及为职工支付的现金'], ['支付的各项税费'], ['支付其他与经营活动有关的现金'], [
+                                                     '经营活动现金流出小计'], ['经营活动产生的现金流量净额'], ['二、投资活动产生的现金流量：'], [
+                                                     '收回投资收到的现金'], ['取得投资收益收到的现金'], ['处置固定资产、无形资产和其他长期资产收回的现金净额'], [
+                                                     '处置子公司及其他营业单位收到的现金净额'], ['收到其他与投资活动有关的现金'], ['投资活动现金流入小计'], [
+                                                     '购建固定资产、无形资产和其他长期资产支付的现金'], ['投资支付的现金'], ['质押贷款净增加额'], [
+                                                     '取得子公司及其他营业单位支付的现金净额'], ['支付其他与投资活动有关的现金'], ['投资活动现金流出小计'], [
+                                                     '投资活动产生的现金流量净额'], ['三、筹资活动产生的现金流量：'], ['吸收投资收到的现金'], [
+                                                     '其中：子公司吸收少数股东投资收到的现金'], ['取得借款收到的现金'], ['收到其他与筹资活动有关的现金'], [
+                                                     '筹资活动现金流入小计'], ['偿还债务支付的现金'], ['分配股利、利润或偿付利息支付的现金'], [
+                                                     '支付其他与筹资活动有关的现金'], ['筹资活动现金流出小计'], ['筹资活动产生的现金流量净额'], [
+                                                     '四、汇率变动对现金及现金等价物的影响'], ['五、现金及现金等价物净增加额'], ['加：期初现金及现金等价物余额'], [
+                                                     '六、期末现金及现金等价物余额']
     return
 
 
@@ -630,18 +630,26 @@ def fill_tb():
             st[st.index(_lst)][3] = '=D' + str(_st_0.index('流动资产合计')) + '+D' + str(_st_0.index('非流动资产合计'))
             st[st.index(_lst)][4] = '=E' + str(_st_0.index('流动资产合计')) + '+E' + str(_st_0.index('非流动资产合计'))
         if _lst[0] == '流动负债合计':
-            st[st.index(_lst)][1] = '=SUM(B' + str(_st_0.index('短期借款')) + ':B' + str(_st_0.index('其他流动负债'))
-            st[st.index(_lst)][2] = '=SUM(C' + str(_st_0.index('短期借款')) + ':C' + str(_st_0.index('其他流动负债'))
-            st[st.index(_lst)][3] = '=SUM(D' + str(_st_0.index('短期借款')) + ':D' + str(_st_0.index('其他流动负债'))
-            st[st.index(_lst)][4] = '=SUM(E' + str(_st_0.index('短期借款')) + ':E' + str(_st_0.index('其他流动负债'))
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_0.index('短期借款')) + ':B' + str(
+                _st_0.index('其他流动负债')) + ')-B' + str(_st_0.index('其中：应付利息')) + '-B' + str(_st_0.index('应付股利'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_0.index('短期借款')) + ':C' + str(
+                _st_0.index('其他流动负债')) + ')-C' + str(_st_0.index('其中：应付利息')) + '-C' + str(_st_0.index('应付股利'))
+            st[st.index(_lst)][3] = '=SUM(D' + str(_st_0.index('短期借款')) + ':D' + str(
+                _st_0.index('其他流动负债')) + ')-D' + str(_st_0.index('其中：应付利息')) + '-D' + str(_st_0.index('应付股利'))
+            st[st.index(_lst)][4] = '=SUM(E' + str(_st_0.index('短期借款')) + ':E' + str(
+                _st_0.index('其他流动负债')) + ')-E' + str(_st_0.index('其中：应付利息')) + '-E' + str(_st_0.index('应付股利'))
         if _lst[0] == '非流动负债合计':
-            st[st.index(_lst)][1] = '=SUM(B' + str(_st_0.index('保险合同准备金')) + ':B' + str(_st_0.index('其他流动负债')) + ')-B' + str(
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_0.index('保险合同准备金')) + ':B' + str(
+                _st_0.index('其他非流动负债')) + ')-B' + str(
                 _st_0.index('其中：优先股(负债)')) + '-B' + str(_st_0.index('永续债(负债)'))
-            st[st.index(_lst)][2] = '=SUM(C' + str(_st_0.index('保险合同准备金')) + ':C' + str(_st_0.index('其他流动负债')) + ')-C' + str(
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_0.index('保险合同准备金')) + ':C' + str(
+                _st_0.index('其他非流动负债')) + ')-C' + str(
                 _st_0.index('其中：优先股(负债)')) + '-C' + str(_st_0.index('永续债(负债)'))
-            st[st.index(_lst)][3] = '=SUM(D' + str(_st_0.index('保险合同准备金')) + ':D' + str(_st_0.index('其他流动负债')) + ')-D' + str(
+            st[st.index(_lst)][3] = '=SUM(D' + str(_st_0.index('保险合同准备金')) + ':D' + str(
+                _st_0.index('其他非流动负债')) + ')-D' + str(
                 _st_0.index('其中：优先股(负债)')) + '-D' + str(_st_0.index('永续债(负债)'))
-            st[st.index(_lst)][4] = '=SUM(E' + str(_st_0.index('保险合同准备金')) + ':E' + str(_st_0.index('其他流动负债')) + ')-E' + str(
+            st[st.index(_lst)][4] = '=SUM(E' + str(_st_0.index('保险合同准备金')) + ':E' + str(
+                _st_0.index('其他非流动负债')) + ')-E' + str(
                 _st_0.index('其中：优先股(负债)')) + '-E' + str(_st_0.index('永续债(负债)'))
         if _lst[0] == '负债合计':
             st[st.index(_lst)][1] = '=B' + str(_st_0.index('流动负债合计')) + '+B' + str(_st_0.index('非流动负债合计'))
@@ -829,5 +837,291 @@ def format_tb():
     wb.sheets('TB').range('B:E').api.ColumnWidth = 30
     return
 
+
 # ----------------------------TB Over-------------------------------------------
 # ----------------------------BS Start-------------------------------------------
+def fill_bs():
+    st = wb.sheets('preBS').range('A1:F52').value
+    # 修正无需计算的行
+    for _lst in st[5:]:
+        if _lst[0] is not None:
+            if _lst[0] == '' or _lst[0][-1] == ':' or _lst[0][-1] == '：':
+                st[st.index(_lst)][1] = st[st.index(_lst)][2] = ''
+            if _lst[3] == '' or _lst[3][-1] == ':' or _lst[3][-1] == '：':
+                st[st.index(_lst)][4] = st[st.index(_lst)][5] = ''
+
+    # 修正用公式计算的行
+    _st_0 = ['zero']
+    _st_1 = ['zero']
+    for _lst in st:
+        _st_0.append(_lst[0])
+        _st_1.append(_lst[3])
+    _i = 5
+    for _lst in st[5:]:
+        # print(_lst[0], _lst)
+        _i = _i + 1
+        st[st.index(_lst)][1] = '=VLOOKUP(A' + str(_i) + ',TB!A:E,5,0)'
+        st[st.index(_lst)][4] = '=VLOOKUP(D' + str(_i) + ',TB!A:E,5,0)'
+        if _lst[0] == '流动资产合计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_0.index('货币资金')) + ':B' + str(
+                _st_0.index('其他流动资产')) + ')-B' + str(_st_0.index('其中：应收利息')) + '-B' + str(_st_0.index('应收股利'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_0.index('货币资金')) + ':C' + str(
+                _st_0.index('其他流动资产')) + ')-C' + str(_st_0.index('其中：应收利息')) + '-C' + str(_st_0.index('应收股利'))
+        if _lst[0] == '非流动资产合计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_0.index('发放贷款和垫款')) + ':B' + str(_st_0.index('其他非流动资产'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_0.index('发放贷款和垫款')) + ':C' + str(_st_0.index('其他非流动资产'))
+        if _lst[0] is None:
+            st[st.index(_lst)][1] = ''
+            st[st.index(_lst)][2] = ''
+        if _lst[0] == '资产总计':
+            st[st.index(_lst)][1] = '=B' + str(_st_0.index('流动资产合计')) + '+B' + str(_st_0.index('非流动资产合计'))
+            st[st.index(_lst)][2] = '=C' + str(_st_0.index('流动资产合计')) + '+C' + str(_st_0.index('非流动资产合计'))
+        if _lst[3] == '流动负债合计':
+            st[st.index(_lst)][4] = '=SUM(E' + str(_st_1.index('短期借款')) + ':E' + str(
+                _st_1.index('其他流动负债')) + ')-E' + str(_st_1.index('其中：应付利息')) + '-E' + str(_st_1.index('应付股利'))
+            st[st.index(_lst)][5] = '=SUM(F' + str(_st_1.index('短期借款')) + ':F' + str(
+                _st_1.index('其他流动负债')) + ')-F' + str(_st_1.index('其中：应付利息')) + '-F' + str(_st_1.index('应付股利'))
+        if _lst[3] == '非流动负债合计':
+            st[st.index(_lst)][4] = '=SUM(E' + str(_st_1.index('保险合同准备金')) + ':E' + str(
+                _st_1.index('其他非流动负债')) + ')-E' + str(
+                _st_1.index('其中：优先股(负债)')) + '-E' + str(_st_1.index('永续债(负债)'))
+            st[st.index(_lst)][5] = '=SUM(F' + str(_st_1.index('保险合同准备金')) + ':F' + str(
+                _st_1.index('其他非流动负债')) + ')-F' + str(
+                _st_1.index('其中：优先股(负债)')) + '-F' + str(_st_1.index('永续债(负债)'))
+        if _lst[3] == '负债合计':
+            st[st.index(_lst)][4] = '=E' + str(_st_1.index('流动负债合计')) + '+E' + str(_st_1.index('非流动负债合计'))
+            st[st.index(_lst)][5] = '=F' + str(_st_1.index('流动负债合计')) + '+F' + str(_st_1.index('非流动负债合计'))
+        if _lst[3] == '归属于母公司所有者权益合计':
+            st[st.index(_lst)][4] = '=SUM(E' + str(_st_1.index('实收资本(股本)')) + ':E' + str(
+                _st_1.index('未分配利润')) + ',-E' + str(_st_1.index('其中：优先股(权益)')) + ',-E' + str(
+                _st_1.index('永续债(权益)')) + ',-2*E' + str(_st_1.index('减：库存股'))
+            st[st.index(_lst)][5] = '=SUM(F' + str(_st_1.index('实收资本(股本)')) + ':F' + str(
+                _st_1.index('未分配利润')) + ',-F' + str(_st_1.index('其中：优先股(权益)')) + ',-F' + str(
+                _st_1.index('永续债(权益)')) + ',-2*F' + str(_st_1.index('减：库存股'))
+        if _lst[3] == '股东权益合计':
+            st[st.index(_lst)][4] = '=E' + str(_st_1.index('归属于母公司所有者权益合计')) + '+E' + str(_st_1.index('少数股东权益'))
+            st[st.index(_lst)][5] = '=F' + str(_st_1.index('归属于母公司所有者权益合计')) + '+F' + str(_st_1.index('少数股东权益'))
+        if _lst[3] == '负债和股东权益总计':
+            st[st.index(_lst)][4] = '=E' + str(_st_1.index('负债合计')) + '+E' + str(_st_1.index('股东权益合计'))
+            st[st.index(_lst)][5] = '=F' + str(_st_1.index('负债合计')) + '+F' + str(_st_1.index('股东权益合计'))
+    return st
+
+
+def format_bs():
+    wb.sheets('BS').range('D1:D1').api.ColumnWidth = 30
+    wb.sheets('BS').range('B1:C1').api.ColumnWidth = 23
+    wb.sheets('BS').range('E1:F1').api.ColumnWidth = 23
+    wb.sheets('BS').range('A:F').api.Font.Name = "Arial"
+    wb.sheets('BS').range('A1:F80').api.Style = "Comma"
+    wb.sheets('BS').range('A4:F52').api.Borders(7).LineStyle = 1
+    wb.sheets('BS').range('A4:F52').api.Borders(8).LineStyle = 1
+    wb.sheets('BS').range('A4:F52').api.Borders(9).LineStyle = 1
+    wb.sheets('BS').range('A4:F52').api.Borders(10).LineStyle = 1
+    wb.sheets('BS').range('A4:F52').api.Borders(11).LineStyle = 1
+    wb.sheets('BS').range('A4:F52').api.Borders(12).LineStyle = 1
+    wb.sheets('BS').range('A1:F1').api.HorizontalAlignment = 7
+    wb.sheets('BS').range('A21:F21').api.Font.Bold = True
+    wb.sheets('BS').range('D35:F36').api.Font.Bold = True
+    wb.sheets('BS').range('A51:F52').api.Font.Bold = True
+    for lst in range(15):
+        wb.sheets('BS').range('A' + str(lst + 6)).api.IndentLevel = 1
+    for lst in [14, 15]:
+        wb.sheets('BS').range('A' + str(lst)).api.IndentLevel = 2
+    for lst in range(19):
+        wb.sheets('BS').range('A' + str(lst + 23)).api.IndentLevel = 1
+    for lst in range(15):
+        wb.sheets('BS').range('D' + str(lst + 6)).api.IndentLevel = 1
+    for lst in [16, 17]:
+        wb.sheets('BS').range('D' + str(lst)).api.IndentLevel = 2
+    for lst in range(12):
+        wb.sheets('BS').range('D' + str(lst + 23)).api.IndentLevel = 1
+    for lst in [26, 27]:
+        wb.sheets('BS').range('D' + str(lst)).api.IndentLevel = 2
+    for lst in range(11):
+        wb.sheets('BS').range('D' + str(lst + 38)).api.IndentLevel = 1
+    for lst in [40, 41]:
+        wb.sheets('BS').range('D' + str(lst)).api.IndentLevel = 2
+    return
+
+
+# ----------------------------BS Over-------------------------------------------
+# ----------------------------IS Start-------------------------------------------
+def fill_is():
+    st = wb.sheets('preIS').range('A1:C70').value
+    # 修正无需计算的行
+    for _lst in st[5:]:
+        if _lst[0] is not None:
+            if _lst[0] == '' or _lst[0][-1] == ':' or _lst[0][-1] == '：':
+                st[st.index(_lst)][1] = st[st.index(_lst)][2] = ''
+
+    # 修正用公式计算的行
+    _st_1 = ['zero']
+    for _lst in st:
+        _st_1.append(_lst[0])
+    _i = 4
+    for _lst in st[4:]:
+        # print(_lst[0], _lst)
+        _i = _i + 1
+        st[st.index(_lst)][1] = '=VLOOKUP(A' + str(_i) + ',TB!A:E,5,0)'
+        if _lst[0] == '一、营业总收入':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('其中：营业收入')) + ':B' + str(_st_1.index('手续费及佣金收入'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('其中：营业收入')) + ':C' + str(_st_1.index('手续费及佣金收入'))
+        if _lst[0] == '二、营业总成本':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('其中：营业成本')) + ':B' + str(_st_1.index('财务费用'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('其中：营业成本')) + ':C' + str(_st_1.index('财务费用'))
+        if _lst[0] == '三、营业利润（亏损以“－”号填列）':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('一、营业总收入')) + '-B' + str(
+                _st_1.index('二、营业总成本')) + '+SUM(B' + str(_st_1.index('加：其他收益')) + ':B' + str(
+                _st_1.index('资产处置收益（损失以“-”号填列）')) + ')-B' + str(_st_1.index('其中：对联营企业和合营企业的投资收益')) + '-B' + str(
+                _st_1.index('以摊余成本计量的金融资产终止确认收益'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('一、营业总收入')) + '-C' + str(
+                _st_1.index('二、营业总成本')) + '+SUM(C' + str(_st_1.index('加：其他收益')) + ':C' + str(
+                _st_1.index('资产处置收益（损失以“-”号填列）')) + ')-C' + str(_st_1.index('其中：对联营企业和合营企业的投资收益')) + '-C' + str(
+                _st_1.index('以摊余成本计量的金融资产终止确认收益'))
+        if _lst[0] == '四、利润总额（亏损总额以“－”号填列）':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('三、营业利润（亏损以“－”号填列）')) + '+B' + str(
+                _st_1.index('加：营业外收入')) + '-B' + str(_st_1.index('减：营业外支出'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('三、营业利润（亏损以“－”号填列）')) + '+C' + str(
+                _st_1.index('加：营业外收入')) + '-C' + str(_st_1.index('减：营业外支出'))
+        if _lst[0] == '五、净利润（净亏损以“－”号填列）':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('四、利润总额（亏损总额以“－”号填列）')) + '-B' + str(
+                _st_1.index('减：所得税费用'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('四、利润总额（亏损总额以“－”号填列）')) + '-C' + str(
+                _st_1.index('减：所得税费用'))
+
+    return st
+
+
+def format_is():
+    wb.sheets('IS').range('A1:A1').api.ColumnWidth = 55
+    wb.sheets('IS').range('B1:C1').api.ColumnWidth = 20
+    wb.sheets('IS').range('A:C').api.Font.Name = "Arial"
+    wb.sheets('IS').range('A1:C80').api.Style = "Comma"
+    wb.sheets('IS').range('A4:C70').api.Borders(7).LineStyle = 1
+    wb.sheets('IS').range('A4:C70').api.Borders(8).LineStyle = 1
+    wb.sheets('IS').range('A4:C70').api.Borders(9).LineStyle = 1
+    wb.sheets('IS').range('A4:C70').api.Borders(10).LineStyle = 1
+    wb.sheets('IS').range('A4:C70').api.Borders(11).LineStyle = 1
+    wb.sheets('IS').range('A4:C70').api.Borders(12).LineStyle = 1
+    wb.sheets('IS').range('A1:C1').api.HorizontalAlignment = 7
+    wb.sheets('IS').range('A5:C5').api.Font.Bold = True
+    wb.sheets('IS').range('A10:C10').api.Font.Bold = True
+    wb.sheets('IS').range('A36:C36').api.Font.Bold = True
+    wb.sheets('IS').range('A36:C36').api.Font.Bold = True
+    wb.sheets('IS').range('A39:C39').api.Font.Bold = True
+    wb.sheets('IS').range('A41:C41').api.Font.Bold = True
+    wb.sheets('IS').range('A48:C48').api.Font.Bold = True
+    wb.sheets('IS').range('A65:C65').api.Font.Bold = True
+    wb.sheets('IS').range('A68:C68').api.Font.Bold = True
+    for lst in range(63):
+        wb.sheets('IS').range('a' + str(lst + 6)).api.IndentLevel = 1
+    for lst in [10, 36, 39, 41, 48, 65, 68, 42, 45, 50, 56]:
+        wb.sheets('IS').range('a' + str(lst)).api.IndentLevel = 0
+    for lst in [28, 29]:
+        wb.sheets('IS').range('a' + str(lst)).api.IndentLevel = 2
+    return
+
+
+# ----------------------------IS Over-------------------------------------------
+# ----------------------------CF Start-------------------------------------------
+def fill_cf():
+    st = wb.sheets('preCF').range('A1:C70').value
+    # 修正无需计算的行
+    for _lst in st[5:]:
+        if _lst[0] is not None:
+            if _lst[0] == '' or _lst[0][-1] == ':' or _lst[0][-1] == '：':
+                st[st.index(_lst)][1] = st[st.index(_lst)][2] = ''
+    # 修正用公式计算的行
+    _st_1 = ['zero']
+    for _lst in st:
+        _st_1.append(_lst[0])
+    _i = 4
+    for _lst in st[4:]:
+        # print(_lst[0], _lst)
+        if _lst[0] == '经营活动现金流入小计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('销售商品、提供劳务收到的现金')) + ':B' + str(
+                _st_1.index('收到其他与经营活动有关的现金'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('销售商品、提供劳务收到的现金')) + ':C' + str(
+                _st_1.index('收到其他与经营活动有关的现金'))
+        if _lst[0] == '经营活动现金流出小计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('购买商品、接受劳务支付的现金')) + ':B' + str(
+                _st_1.index('支付其他与经营活动有关的现金'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('购买商品、接受劳务支付的现金')) + ':C' + str(
+                _st_1.index('支付其他与经营活动有关的现金'))
+        if _lst[0] == '经营活动产生的现金流量净额':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('经营活动现金流入小计')) + '-B' + str(
+                _st_1.index('经营活动现金流出小计'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('经营活动现金流入小计')) + '-C' + str(
+                _st_1.index('经营活动现金流出小计'))
+        if _lst[0] == '投资活动现金流入小计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('收回投资收到的现金')) + ':B' + str(
+                _st_1.index('收到其他与投资活动有关的现金'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('收回投资收到的现金')) + ':C' + str(
+                _st_1.index('收到其他与投资活动有关的现金'))
+        if _lst[0] == '投资活动现金流出小计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('购建固定资产、无形资产和其他长期资产支付的现金')) + ':B' + str(
+                _st_1.index('支付其他与投资活动有关的现金'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('购建固定资产、无形资产和其他长期资产支付的现金')) + ':C' + str(
+                _st_1.index('支付其他与投资活动有关的现金'))
+        if _lst[0] == '投资活动产生的现金流量净额':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('投资活动现金流入小计')) + '-B' + str(
+                _st_1.index('投资活动现金流出小计'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('投资活动现金流入小计')) + '-C' + str(
+                _st_1.index('投资活动现金流出小计'))
+        if _lst[0] == '筹资活动现金流入小计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('取得借款收到的现金')) + ':B' + str(
+                _st_1.index('收到其他与筹资活动有关的现金')) + ',B' + str(_st_1.index('吸收投资收到的现金'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('取得借款收到的现金')) + ':C' + str(
+                _st_1.index('收到其他与筹资活动有关的现金')) + ',C' + str(_st_1.index('吸收投资收到的现金'))
+        if _lst[0] == '筹资活动现金流出小计':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('偿还债务支付的现金')) + ':B' + str(
+                _st_1.index('支付其他与筹资活动有关的现金'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('偿还债务支付的现金')) + ':C' + str(
+                _st_1.index('支付其他与筹资活动有关的现金'))
+        if _lst[0] == '筹资活动产生的现金流量净额':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('筹资活动现金流入小计')) + '-B' + str(
+                _st_1.index('筹资活动现金流出小计'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('筹资活动现金流入小计')) + '-C' + str(
+                _st_1.index('筹资活动现金流出小计'))
+        if _lst[0] == '五、现金及现金等价物净增加额':
+            st[st.index(_lst)][1] = '=SUM(B' + str(_st_1.index('经营活动产生的现金流量净额')) + ',B' + str(
+                _st_1.index('投资活动产生的现金流量净额')) + ',B' + str(_st_1.index('筹资活动产生的现金流量净额')) + ',B' + str(
+                _st_1.index('四、汇率变动对现金及现金等价物的影响'))
+            st[st.index(_lst)][2] = '=SUM(C' + str(_st_1.index('经营活动产生的现金流量净额')) + ',C' + str(
+                _st_1.index('投资活动产生的现金流量净额')) + ',C' + str(_st_1.index('筹资活动产生的现金流量净额')) + ',C' + str(
+                _st_1.index('四、汇率变动对现金及现金等价物的影响'))
+        if _lst[0] == '六、期末现金及现金等价物余额':
+            st[st.index(_lst)][1] = '=B' + str(_st_1.index('五、现金及现金等价物净增加额')) + '+B' + str(
+                _st_1.index('加：期初现金及现金等价物余额'))
+            st[st.index(_lst)][2] = '=C' + str(_st_1.index('五、现金及现金等价物净增加额')) + '+C' + str(
+                _st_1.index('加：期初现金及现金等价物余额'))
+
+    return st
+
+
+def format_cf():
+    wb.sheets('CF').range('A1:C80').api.Font.Size = 11
+    wb.sheets('CF').range('A1:A80').api.ColumnWidth = 55
+    wb.sheets('CF').range('B1:C1').api.ColumnWidth = 25
+    wb.sheets('CF').range('A:C').api.Font.Name = "Arial"
+    wb.sheets('CF').range('A1:C80').api.Style = "Comma"
+    wb.sheets('CF').range('A4:C60').api.Borders(7).LineStyle = 1
+    wb.sheets('CF').range('A4:C60').api.Borders(8).LineStyle = 1
+    wb.sheets('CF').range('A4:C60').api.Borders(9).LineStyle = 1
+    wb.sheets('CF').range('A4:C60').api.Borders(10).LineStyle = 1
+    wb.sheets('CF').range('A4:C60').api.Borders(11).LineStyle = 1
+    wb.sheets('CF').range('A4:C60').api.Borders(12).LineStyle = 1
+    wb.sheets('CF').range('A1:C1').api.HorizontalAlignment = 7
+    wb.sheets('CF').range('A5:C5').api.Font.Bold = True
+    wb.sheets('CF').range('A19:C19').api.Font.Bold = True
+    wb.sheets('CF').range('A30:C32').api.Font.Bold = True
+    wb.sheets('CF').range('A38:C38').api.Font.Bold = True
+    wb.sheets('CF').range('A44:C46').api.Font.Bold = True
+    wb.sheets('CF').range('A51:C51').api.Font.Bold = True
+    wb.sheets('CF').range('A55:C58').api.Font.Bold = True
+    wb.sheets('CF').range('A60:C60').api.Font.Bold = True
+    for lst in range(55):
+        wb.sheets('CF').range('a' + str(lst + 6)).api.IndentLevel = 1
+    for lst in [19, 30, 31, 32, 38, 44, 45, 46, 51, 55, 56, 57, 58, 60]:
+        wb.sheets('CF').range('a' + str(lst)).api.IndentLevel = 0
+    return

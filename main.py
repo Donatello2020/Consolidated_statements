@@ -44,4 +44,17 @@ fc.format_aje()
 # TB
 wb.sheets('TB').range('A1').value = fc.fill_tb()
 fc.format_tb()
+
+# BS
+wb.sheets('BS').range('A1').value = fc.fill_bs()
+fc.format_bs()
+
+# IS
+wb.sheets('IS').range('A1').value = fc.fill_is()
+fc.format_is()
+
+# CF
+wb.sheets('CF').range('A1').value = fc.fill_cf()
+fc.format_cf()
+
 wb.save()
