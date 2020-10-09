@@ -483,7 +483,11 @@ def fill_aje():
     if plookup('preBS', '应交税费', 4) < 0:
         rplc_lst(st, 1, ['将应交税费负数调整到其他流动资产', '借', '其他流动资产', '', -plookup('preBS', '应交税费', 4), '', ''])
         rplc_lst(st, 1, ['将应交税费负数调整到其他流动资产', '贷', '应交税费', '', '', -plookup('preBS', '应交税费', 4), ''])
+        rplc_lst(st, 1, ['-', '', '', '', '', '', ''])
     # print(st)
+    rplc_lst(st, 1, ['将工程设备款重分类至其他非流动资产核算', '借', '其他非流动资产', '', '', '', ''])
+    rplc_lst(st, 1, ['将工程设备款重分类至其他非流动资产核算', '贷', '预付款项', '', '', '', ''])
+    rplc_lst(st, 1, ['-', '', '', '', '', '', ''])
     return st
 
 
@@ -502,11 +506,11 @@ def plookup(sheet_name, head, col_1, col_2=1):
 def rplc_lst(st, col, lst):
     _i = 0
     for _lst in st:
-        if _lst[col - 1] == '':
-            _i = _i + 1
-        if _i == 2:
-            st[st.index(_lst) - 1][:6] = lst[:6]
+        if _lst[col - 1] == '' and _lst[col] == '':
+            st[_i][:6] = lst[:6]
+            # st[st.index(_lst)][0] = '-'
             break
+        _i = _i + 1
     return
 
 
