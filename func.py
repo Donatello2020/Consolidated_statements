@@ -11,7 +11,7 @@ def wblink():
     _xlsx_name = ''
 
     for _file_name in os.listdir(_path_c):
-        if _file_name[-4:] == "xlsx":
+        if _file_name[-4:] == "xlsx" and _file_name[0] != '~':
             _xlsx_name = _file_name
             break
     if _xlsx_name == '':
